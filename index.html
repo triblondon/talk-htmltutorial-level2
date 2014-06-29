@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Learning HTML (level 2) - Andrew Betts</title>
+
+		<meta name="description" content="A workshop on HTML for journalists">
+		<meta name="author" content="Andrew Betts">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/ftlabs.css" id="theme">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="lib/js/chart.min.js"></script>
+
+		<style>
+		.reveal .slides .hintbox {
+			border: 1px solid #777;
+			text-align: left;
+			padding: 0.5em;
+			margin-top: 1em;
+			background: rgba(255,255,255,0.7);
+		}
+		</style>
+	</head>
+
+	<body>
+	<div class='pointer'></div>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>
+					<h1>Learning HTML</h1>
+					<h3>Level 2 (intermediate)<br/>Andrew Betts, FT Labs</h3>
+					<p>
+						<a href="http://twitter.com/triblondon">@triblondon</a>,
+						<a href="http://twitter.com/FTLabs">@FTLabs</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>You can build a gallery</h2>
+					<iframe src='http://build.origami.ft.com/files/o-gallery@1.4.0/demos/declarative.html' class='stretch' style='position:relative;left:25%'></iframe>
+				</section>
+
+				<section>
+					<h2>Recap of level 1</h2>
+					<ul>
+						<li>HTML is a set of standard <strong>tags</strong> that you can use to create <strong>elements</strong> following a set of rules inherited from a generic language structure called XML. It's like a vocabulary to XML's grammar.</li>
+						<li>Elements are <strong>semantic</strong>, they convey meaning without visual style</li>
+						<li>You can nest elements inside of one another, but it's important that they are closed in the right order so that they are <strong>well formed</strong></li>
+						<li>Some tags need to be opened and closed, others are 'self-closing'</li>
+						<li><strong>Attributes</strong> can be used to add further information to elements which is not displayed</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>QUIZ!</h1>
+					<p>Open the web browser on your phone or computer and go to:</p>
+					<p><strong><big>kahoot.it</big></strong></p>
+				</section>
+
+				<section>
+					<h2>Separating content and style</h2>
+					<table>
+					<thead><tr><th>Content</th><th>Style</th></tr></thead>
+					<tbody>
+						<tr><td>HTML</td><td>CSS</td></tr>
+						<tr><td>What you're saying</td><td>What content should look like</td></tr>
+						<tr><td>Meaning, not appearance</td><td>Appearance, not meaning</td></tr>
+					</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h1>CSS</h1>
+					<h2>Cascading <strong>Style</strong> Sheets</h2>
+				</section>
+
+				<section>
+					<h2>"Headings bold and in caps"</h2>
+					<pre class='hljs-css css'><code>h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</code></pre>
+					<p>CSS has <strong>rule sets</strong> comprising</p>
+					<ul>
+						<li>Selector (H1, H2, H3, H4, H5, H6)</li>
+						<li>Properties (text-transform, font-weight)</li>
+						<li>Values (uppercase, bold)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Class</h1>
+					<h2>Group together things that have something in common</h2>
+				</section>
+
+				<section data-background='content/shadow2.jpg'>
+					<h2 style='background-color:rgba(255,255,255,0.7); padding: 2px 10px'>Remember attributes?</h2>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<div style='margin-left: 75%; text-align: left'>
+						<code>
+							<p><strong style='background-color:rgba(255,255,255,0.7); padding: 2px 10px'>breed="labrador"</strong></p>
+							<p><strong style='background-color:rgba(255,255,255,0.7); padding: 2px 10px'>color="black"</strong></p>
+						</code>
+					</div>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</section>
+
+				<section>
+					<h2>'Marking-up' shadow</h2>
+					<pre class='bigcode hljs-xml xml'><code><animal breed='labrador' color='black'>Shadow</animal></code></pre>
+				</section>
+
+				<section>
+					<h2>Class is an attribute that classifies</h2>
+					<pre class='bigcode hljs-xml xml'><code><animal class="dog mammal black-fur four-legs friendly">
+  Shadow
+</animal></code></pre>
+				</section>
+
+				<section>
+					<h2>Styling four-legged things</h2>
+					<pre class='bigcode hljs-css css'><code>.four-legs {
+  font-family: 'Benton Sans'
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h1>Article subheadings</h1>
+					<img src='content/article-subhead.png' />
+				</section>
+
+				<section>
+					<h2>Marking up article subheadings</h2>
+					<pre class='bigcode hljs-xml xml'><code><h2 class='article-subhead'>How the votes were won</h2></code></pre>
+				</section>
+
+				<section>
+					<h2>Styling article subheadings</h2>
+					<pre class='bigcode hljs-css css'><code>.article-subhead {
+  font-weight: bold;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h2>CSS properties</h2>
+					<p>There are a <a href='https://www.google.com/url?q=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FCSS%2FReference&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGggxehJn__LpLu3y-TOThncW0frg'>lot of CSS properties</a>.  Here are some of them:</p>
+					<ul>
+						<li>font-size: <code>[number]</code>px</li>
+						<li>padding: <code>[number]</code>px</li>
+						<li>text-transform: <code>[uppercase|lowercase|capitalize]</code></li>
+						<li>font-weight: <code>[bold|normal]</code></li>
+						<li>font-size: <code>[number]</code>px</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Exercise!</h2>
+					<p><a href='http://jsbin.com/nozodego/1/edit'>http://jsbin.com/nozodego/1/edit</a></p>
+					<p>Give the push button a big font and lots of padding</p>
+					<div class='hintbox'>
+						<h4>Reminders:</h4>
+						<p>You must only affect the push me button, not the don't push me button</p>
+						<p>You'll need a <code>class</code>, and a CSS rule set with the properties <code>font-size</code> and <code>padding</code>.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Adding behaviour</h2>
+					<table>
+					<thead><tr><th>Content</th><th>Style</th><th>Behaviour</th></tr></thead>
+					<tbody>
+						<tr><td>HTML</td><td>CSS</td><td>JavaScript</td></tr>
+						<tr><td>What you're saying</td><td>What content should look like</td><td>How content should react to interaction</td></tr>
+					</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Example: sharing an article</h2>
+					<iframe src="http://build.origami.ft.com/files/o-share@0.5.4/demos/horizontal.html" style='height:85px; width: 450px'></iframe>
+					<table>
+					<tbody>
+						<tr>
+							<th>Content<br/><div style='font-weight:normal'>(HTML)</div></th>
+							<td>URL to be shared<br/>Which services to offer</td>
+						</tr><tr>
+							<th>Style<br/><div style='font-weight:normal'>(CSS)</div></th>
+							<td>Logos of all the services<br/>Spacing and margins<br/>Design and positioning of the tooltip</td>
+						</tr><tr>
+							<th>Behaviour<br/><div style='font-weight:normal'>(JavaScript)</div></th>
+							<td>Tooltip on click<br/>Make services load in small pop-up windows</td>
+						</tr>
+					</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Loading CSS and JavaScript</h2>
+					<p>CSS:</p>
+					<pre class='bigcode hljs-xml xml'><code>&lt;link rel='stylesheet' href='http://...'></code></pre>
+					<p>JavaScript:</p>
+					<pre class='bigcode hljs-xml xml'><code>&lt;script src='http://...'>&lt;/script></code></pre>
+				</section>
+
+				<section>
+					<h2>Where do they go?</h2>
+					<pre class='bigcode hljs-xml xml'><code>&lt;html>
+  &lt;head>
+    &lt;link rel='stylesheet' href='my-stylesheet.css'>
+  &lt;/head>
+  &lt;body>
+    &lt;p>Hello!&lt;/p>
+    &lt;script src='my-javascript.js'>&lt;/script>
+  &lt;/body>
+&lt;/html></code></pre>
+				</section>
+
+				<section>
+					<h2>Where do they go?</h2>
+					<p><strong>CSS</strong> goes <strong>at the top</strong> of the document, <strong>before the content</strong>.  Otherwise, you can get a Flash of Unstyled Content (FOUC):</p>
+					<img src='content/fouc.png' class='stretch' />
+				</section>
+
+				<section>
+					<h2>Where do they go?</h2>
+					<p><strong>JavaScript</strong> goes <strong>at the bottom</strong> of the document, <strong>after the content</strong>.  It's not needed urgently and shouldn't slow down page loading.</p>
+				</section>
+
+				<section>
+					<h2>Annoying differences</h2>
+					<ul>
+						<li>The <code>&lt;link></code> tag is self-closing, so you don't need a <code>&lt;/link></code>, whereas the <code>&lt;script></code> tag is not, so you do need a <code>&lt;/script></code>.</li>
+						<li>Since the <code>&lt;link></code> tag is also used to link to things other than stylesheets, you need an attribute (<code>rel</code>) to say that it's a stylesheet you're linking to, but you don't need that for <code>&lt;script></code></li>
+						<li>The URL of the stylesheet is in an attribute called <code>href</code>, whilst the URL of the script is in an attribute called <code>src</code>.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Get CSS and JS from Origami</h2>
+					<p>Pre-formed <code>&lt;script></code> and <code>&lt;link></code> tags are available from the Origami registry:</p>
+					<img src='content/registry.png'>
+				</section>
+
+				<section>
+					<h2>Exercise!</h2>
+					<p><a href='http://jsbin.com/goyihoke/2/edit'>http://jsbin.com/goyihoke/2/edit</a></p>
+					<p>Create some buttons in proper FT style.</p>
+					<div class='hintbox'>
+						<p>From the Origami registry, find the <strong>o-ft-buttons</strong> component, and use the code samples to get the HTML code that you need.  Then import the stylesheet using the quick start code.</p>
+						<p>You import the stylesheet using the <code>&lt;link></code> tag</p>
+						<p>Stylesheets go in the <code>&lt;head</code> section, and the HTML goes in the <code>&lt;body></code></p>
+					</div>
+				</section>
+
+				<section>
+					<h1>Let's build a gallery</h1>
+				</section>
+
+				<section>
+					<h2>1. Start with a blank page</h2>
+					<p><a href='http://jsbin.com/goyihoke/2/edit'>http://jsbin.com/goyihoke/2/edit</a></p>
+				</section>
+
+				<section>
+					<h2>2. Go to the registry and find the gallery component</h2>
+					<p><a href='http://registry.origami.ft.com'>http://registry.origami.ft.com</a></p>
+					<p><img src='content/gallery-in-registry.png'></p>
+				</section>
+
+				<section>
+					<h2>3. Find the HTML</h2>
+					<p>Expand the 'Declarative' demo's source code</p>
+					<p><img src='content/gallery-source.png' class='stretch'></p>
+				</section>
+
+				<section>
+					<h2>4. Create the gallery container</h2>
+					<pre class='hljs-xml xml'><code><div class="o-gallery o-gallery--slideshow" data-o-component="o-gallery" data-o-version="1.4.0">
+</div></code></pre>
+					<ul>
+						<li>In HTML, a <code>&lt;div></code> is an element with no special meaning, which we can use for our own reasons.</li>
+						<li>The <code>o-gallery</code> class allows us to apply gallery styling to the element</li>
+						<li>The <code>o-gallery--slideshow</code> means we want the slideshow style of gallery</li>
+						<li><code>data-o-component</code> and <code>data-o-version</code> declares which version of the Origami component is needed, and allows us to make sure that the Origami component code you're using is the right version</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Where to find the version?</h2>
+					<img src='content/gallery-version.png'>
+				</section>
+
+				<section>
+					<h2>5. Give your gallery a title</h2>
+					<p>This goes <em>inside</em> your gallery container.</p>
+					<pre class='bigcode hljs-xml xml'><code><h1 class="o-gallery__title">TITLE OF YOUR GALLERY</h1></code></pre>
+				</section>
+
+				<section>
+					<h2>6. Make a list for your images</h2>
+					<pre class='bigcode hljs-xml xml'><code><ol class="o-gallery__items">
+</ol></code></pre>
+					<p>Images are a sequence of items, so a <em>list</em> is appropriate.  They are in a sequence, so we should use an <strong>ordered list</strong>.</p>
+				</section>
+
+				<section>
+					<h2>7. Put some images in your gallery</h2>
+					<pre class='bigcode hljs-xml xml'><code><li class="o-gallery__item">
+  <div class="o-gallery__item__content">
+    <img aria-labelledby='caption1' src="IMAGE URL">
+  </div>
+  <div id='caption1' class="o-gallery__item__caption">
+    CAPTION
+  </div>
+</li>
+</code></pre>
+					<p>Find some images, eg on <a href='http://www.ft.com/cms/s/0/c6168638-fe17-11e3-b4f1-00144feab7de.html'>this article</a>.  Right click on the image and 'Copy Image URL', then use it in your gallery.</p>
+					<p>Repeat this code for each of the images in your gallery</p>
+				</section>
+
+				<section>
+					<h2>8. Add Origami Styles (CSS)</h2>
+					<p>Find the quick start code on the <strong>o-gallery</strong> page in the Origami registry.  Copy the <code>&lt;link></code> tag into the right place in your code.</p>
+					<pre class='hljs-xml xml'><code><link rel="stylesheet" href="http://build.origami.ft.com/bundles/css?modules=o-gallery@^1.4.0" /></code></pre>
+					<p>Now your gallery has the right fonts, margins, and colours.  This is what the gallery will look like to Google and anyone who is using an out of date browser.</p>
+				</section>
+
+				<section>
+					<h2>9. Add Origami behaviours (JS)</h2>
+					<p>Find the quick start code on the <strong>o-gallery</strong> page in the Origami registry.  Copy the <code>&lt;script></code> tag into the right place in your code.</p>
+					<pre class='hljs-xml xml'><code>&lt;script src="//build.origami.ft.com/bundles/js?modules=o-gallery@^1.4.0">&lt;/script></code></pre>
+					<p>Gallery still isn't quite activated though...</p>
+				</section>
+
+				<section>
+					<h2>10. Tell the gallery to start up</h2>
+					<p>Change the JavaScript URL to export a bundle variable, and add the initialisation call:</p>
+					<pre class='hljs-xml xml'><code>
+&lt;script src="//build.origami.ft.com/bundles/js?modules=o-gallery@^1.4.0&amp;export=bundle">&lt;/script>
+<script>
+  bundle['o-gallery'].createAllIn(document.body);
+</script>
+</code></pre>
+					<p>Congratulations, you coded a gallery</p>
+				</section>
+
+				<section>
+					<h2>Recap</h2>
+					<ul>
+						<li>HTML doesn't give us any visual style or clever whizzy behaviours.  For that we need <strong>CSS</strong> and <strong>JavaScript</strong>.</li>
+						<li>CSS works by linking style rules with HTML elements that are labelled with <strong>classes</strong>.</li>
+						<li>Separating CSS and JavaScript away from HTML means you can focus on content and leave other people to worry about style and behaviours.</li>
+						<li>The <strong>Origami registry</strong> is the place to go to see what clever components we have available to make your HTML work harder.</li>
+					</ul>
+				</section>
+
+				<section class='logo-title dark-background' data-background='css/theme/ftlabs_images/purple-blue-2.jpg'>
+					<h1>Thanks for listening!</h1>
+					<h3>Contact me:</h3>
+					<ul>
+						<li>Email: <a href='mailto:andrew@labs.ft.com'>andrew@labs.ft.com</a></li>
+						<li>Twitter: <a href='http://twitter.com/@triblondon'>@triblondon</a>, <a href='http://twitter.com/@ftlabs'>@ftlabs</a></li>
+					</ul>
+				</section>
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script>
+			Reveal.initialize({
+				width: 1280,
+    			height: 800,
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+				theme: 'ftlabs',
+				transition: 'linear',
+				backgroundTransition: 'slide',
+				transitionSpeed: 'fast',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+			// Add background effect for big headings
+			Reveal.addEventListener('slidechanged', function(e) {
+				if (e.currentSlide.classList.contains('big-quote')) {
+					var h1 = e.currentSlide.querySelector('h1');
+					if (h1 && !e.currentSlide.querySelector('span.bghead')) {
+						var bgh1 = document.createElement('span');
+						bgh1.classList.add('bghead');
+						bgh1.innerHTML = h1.innerHTML;
+						h1.parentNode.appendChild(bgh1);
+					}
+				}
+			});
+
+		</script>
+
+	</body>
+</html>

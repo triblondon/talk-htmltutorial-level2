@@ -226,6 +226,7 @@
 					<h2>Get CSS and JavaScript from Origami</h2>
 					<p>Pre-formed <code>&lt;script></code> and <code>&lt;link></code> tags are available from the Origami registry:</p>
 					<img src='content/registry.png'>
+					<p><strong>registry.origami.ft.com</strong></p>
 				</section>
 
 				<section>
@@ -234,7 +235,7 @@
 					<p>Change your button to be proper FT style!</p>
 					<div class='hintbox'>
 						<p>From the Origami Registry, find the <strong>o-ft-buttons</strong> component.</p>
-						<p>Replace your <code>&lt;style&gt;...&lt;/style&gt;</code> section with the <code>&lt;link...></code> tag from the quick start section in the registry.</p>
+						<p>Replace your <code>&lt;style&gt;...&lt;/style&gt;</code> section with the <code>&lt;link...></code> tag from the quick start section in the registry (registry.origami.ft.com).</p>
 						<p>Use the demo in the registry to find the right class to apply to your button</p>
 					</div>
 				</section>
@@ -262,6 +263,7 @@
 
 				<section>
 					<h2>4. Create the gallery container</h2>
+					<p><strong>I've put this bit in for you already</strong></p>
 					<pre class='bigcode hljs-xml xml'><code><div class="o-gallery o-gallery--slideshow" data-o-component="o-gallery">
 </div></code></pre>
 					<ul>
@@ -316,9 +318,9 @@
 					<h2>10. Tell the gallery to start up</h2>
 					<p>Change the JavaScript URL to export a bundle variable, and add the initialisation call:</p>
 					<pre class='hljs-xml xml'><code>
-&lt;script src="//build.origami.ft.com/bundles/js?modules=o-gallery@^1.4.1&amp;export=bundle">&lt;/script>
+&lt;script src="//build.origami.ft.com/bundles/js?modules=o-gallery@^1.4.1&amp;export=origami">&lt;/script>
 <script>
-  bundle['o-gallery'].createAllIn(document.body);
+  origami['o-gallery'].createAllIn(document.body);
 </script>
 </code></pre>
 					<p>Congratulations, you made a gallery</p>
